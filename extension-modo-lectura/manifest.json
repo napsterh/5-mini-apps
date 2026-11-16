@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Modo lectura básico",
+  "version": "1.0",
+  "description": "Quita menús, anuncios y barras laterales de la página actual con un clic.",
+  "permissions": ["activeTab", "scripting"],
+  "action": { "default_title": "Modo lectura" },
+  "background": { "service_worker": "background.js" }
+}

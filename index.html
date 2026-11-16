@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini App · 5 mini proyectos de JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Mini App</h1>
+    <p>5 mini proyectos de JavaScript · <strong>@napster.dev</strong></p>
+  </header>
+
+  <!-- Pestañas: cada botón muestra un proyecto -->
+  <nav id="tabs">
+    <button data-tab="clima" class="activa">1 · Clima</button>
+    <button data-tab="kanban">2 · Tareas</button>
+    <button data-tab="chat">3 · Chat IA</button>
+    <button data-tab="snake">4 · Snake</button>
+    <button data-tab="lectura">5 · Lectura</button>
+  </nav>
+
+  <main>
+
+    <!-- ========== 1. CLIMA ========== -->
+    <section id="clima" class="panel activa">
+      <h2>1 · Clima de tu ciudad</h2>
+      <p class="ayuda">Usa tu ubicación y la API gratuita de Open-Meteo.</p>
+      <div id="clima-resultado" class="tarjeta">Cargando…</div>
+      <button id="clima-unidad">Cambiar °C / °F</button>
+    </section>
+
+    <!-- ========== 2. TABLERO DE TAREAS ========== -->
+    <section id="kanban" class="panel">
+      <h2>2 · Tablero de tareas</h2>
+      <p class="ayuda">Escribe una tarea y arrástrala entre columnas. Se guarda sola.</p>
+      <form id="kanban-form">
+        <input id="kanban-texto" placeholder="Nueva tarea…" required>
+        <button>Añadir</button>
+      </form>
+      <div id="kanban-tablero">
+        <div class="columna" data-col="porHacer"><h3>Por hacer</h3><div class="lista"></div></div>
+        <div class="columna" data-col="enCurso"><h3>En curso</h3><div class="lista"></div></div>
+        <div class="columna" data-col="hecho"><h3>Hecho</h3><div class="lista"></div></div>
+      </div>
+    </section>
+
+    <!-- ========== 3. CHAT CON IA ========== -->
+    <section id="chat" class="panel">
+      <h2>3 · Tu propio chat con IA</h2>
+      <p class="ayuda" id="chat-modo"></p>
+      <div id="chat-mensajes" class="tarjeta"></div>
+      <form id="chat-form">
+        <input id="chat-texto" placeholder="Escribe un mensaje…" autocomplete="off" required>
+        <button>Enviar</button>
+      </form>
+    </section>
+
+    <!-- ========== 4. SNAKE ========== -->
+    <section id="snake" class="panel">
+      <h2>4 · Snake</h2>
+      <p class="ayuda">Flechas o WASD. En el móvil, desliza el dedo sobre el juego.</p>
+      <p>Puntos: <strong id="snake-puntos">0</strong> · Récord: <strong id="snake-record">0</strong></p>
+      <canvas id="snake-canvas" width="300" height="300"></canvas>
+      <button id="snake-reiniciar">Jugar / reiniciar</button>
+    </section>
+
+    <!-- ========== 5. MODO LECTURA ========== -->
+    <section id="lectura" class="panel">
+      <h2>5 · Modo lectura</h2>
+      <p class="ayuda">Quita menús, anuncios y barras laterales. Igual que hace la extensión de Chrome de la carpeta <code>extension-modo-lectura</code>.</p>
+      <button id="lectura-boton">Activar modo lectura</button>
+      <div id="lectura-demo">
+        <div class="menu-falso">Inicio · Noticias · Deportes · Contacto</div>
+        <div class="anuncio">PUBLICIDAD: ¡Compra ya!</div>
+        <article>
+          <h3>Cómo funciona JavaScript en una web</h3>
+          <p>JavaScript es el lenguaje que hace que una página responda cuando haces clic, escribes o te desplazas.</p>
+          <p>Mientras HTML pone la estructura y CSS el estilo, JavaScript añade el comportamiento: menús que se abren, formularios que se validan y juegos que se mueven.</p>
+          <p>Por eso casi todas las webs lo usan. Aprenderlo con proyectos pequeños es la forma más rápida de entenderlo.</p>
+        </article>
+        <aside class="lateral">Más noticias · Te puede interesar · Suscríbete</aside>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/clima.js"></script>
+  <script src="js/kanban.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/snake.js"></script>
+  <script src="js/lectura.js"></script>
+</body>
+</html>

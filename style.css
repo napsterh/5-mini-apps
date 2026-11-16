@@ -1,0 +1,92 @@
+/* Estilo básico de la Mini App: fondo oscuro y acento verde neón */
+:root {
+  --fondo: #0B0D0A;
+  --panel: #0f1c3a;
+  --borde: #1c3a7a;
+  --acento: #A3FF12;
+  --texto: #ffffff;
+  --gris: #9CA3AF;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+header, footer { text-align: center; padding: 16px; }
+header h1 { margin: 0; color: var(--acento); }
+header p, footer { color: var(--gris); }
+footer a { color: var(--acento); }
+
+/* Pestañas */
+#tabs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 8px; }
+#tabs button.activa { background: var(--acento); color: #0B0D0A; }
+
+button {
+  background: var(--panel);
+  color: var(--texto);
+  border: 2px solid var(--acento);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover { background: #16264d; }
+
+input {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid var(--borde);
+  background: #fff;
+  min-width: 200px;
+}
+
+main { max-width: 760px; margin: 0 auto; padding: 0 16px 24px; }
+
+/* Solo se ve el panel activo */
+.panel { display: none; }
+.panel.activa { display: block; }
+
+.ayuda { color: var(--gris); }
+.tarjeta { background: var(--panel); border: 2px solid var(--borde); border-radius: 14px; padding: 16px; margin-bottom: 12px; }
+
+/* 1. Clima */
+.clima-grande { font-size: 3rem; font-weight: bold; color: var(--acento); }
+.dias { display: flex; gap: 8px; margin-top: 12px; }
+.dia { flex: 1; background: #0B0D0A; border-radius: 10px; padding: 8px; text-align: center; font-size: .85rem; }
+
+/* 2. Kanban */
+#kanban-tablero { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+.columna { background: var(--panel); border: 2px solid var(--borde); border-radius: 12px; padding: 8px; min-height: 180px; }
+.columna h3 { margin: 4px 0 8px; font-size: 1rem; color: var(--acento); }
+.columna.sobre { border-color: var(--acento); }
+.lista { min-height: 120px; }
+.tarea { background: #fff; color: #111; border-radius: 8px; padding: 8px; margin-bottom: 6px; cursor: grab; display: flex; justify-content: space-between; gap: 6px; }
+.tarea button { background: none; border: none; color: #c00; padding: 0 4px; }
+
+/* 3. Chat */
+#chat-mensajes { height: 280px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.msg { max-width: 80%; padding: 8px 12px; border-radius: 14px; }
+.msg.yo { align-self: flex-end; background: var(--acento); color: #0B0D0A; }
+.msg.ia { align-self: flex-start; background: #16264d; }
+
+/* 4. Snake */
+#snake-canvas { background: #06080f; border: 3px solid var(--acento); border-radius: 8px; display: block; margin: 8px 0; max-width: 100%; touch-action: none; }
+
+/* 5. Lectura */
+#lectura-demo { background: #fff; color: #111; border-radius: 12px; padding: 12px; margin-top: 12px; }
+.menu-falso { background: #ddd; padding: 8px; border-radius: 6px; }
+.anuncio { background: #ffe066; padding: 10px; margin: 8px 0; text-align: center; font-weight: bold; }
+.lateral { background: #eee; padding: 8px; margin-top: 8px; border-radius: 6px; }
+#lectura-demo.modo-lectura .menu-falso,
+#lectura-demo.modo-lectura .anuncio,
+#lectura-demo.modo-lectura .lateral { display: none; }
+#lectura-demo.modo-lectura article { font-size: 1.3rem; line-height: 1.7; max-width: 620px; margin: 0 auto; }
+
+@media (max-width: 600px) {
+  #kanban-tablero { grid-template-columns: 1fr; }
+}
